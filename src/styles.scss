@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #f9f6ef;
+}
+
+img {
+  max-width: 100%;
+}
+
+.btn {
+  outline: none;
+
+  &-primary {
+    background-color: #00C65E;
+    border-color: #00C65E;
+
+    &:hover, &:focus, &:visited, &:active {
+      box-shadow: none !important;
+      background-color: #079c4d !important;
+      border-color: #00C65E !important;
+    }
+  }
+}

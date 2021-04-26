@@ -1,0 +1,19 @@
+.header {
+  height: 70px;
+
+  .navbar {
+    &-green {
+      background-color: #00C65E;
+    }
+  }
+}
+
+.footer {
+  &-light {
+    background-color: #f7f1e2;
+  }
+}
+
+main {
+  padding: 60px 0;
+}
