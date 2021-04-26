@@ -1,0 +1,80 @@
+<section class="farm-detail">
+  <div class="card mb-4 farm-detail__card">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-md-1 align-self-center">
+          <img src="../../assets/img/logo-a.jpg" alt="Fazenda" class="rounded-circle farm-detail__avatar">
+        </div>
+        <div class="col-9">
+          <h2 class="my-0 font-weight-normal">{{ farm.name }}</h2>
+          <p>{{ farm.description }}</p>
+        </div>
+        <div class="col-md-2 align-self-center">
+          <div class="d-flex flex-row">
+            <button type="button" [routerLink]="['/cadastro', farm.id]" class="btn btn-primary mr-3">
+              Editar
+            </button>
+            <button type="button" (click)="delete(farm.id)" class="btn btn-outline-danger">
+              Excluir
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row px-md-4 mb-5">
+        <div class="col">
+          <h4 class="mb-0">Número de Áreas</h4>
+          <p class="text-muted">{{ farm.areas.length || 0 }}</p>
+        </div>
+        <div class="col">
+          <h4 class="mb-0">Safra</h4>
+          <p class="text-muted">{{ farm.safra }}</p>
+        </div>
+        <div class="col">
+          <h4 class="mb-0">Produtividade</h4>
+          <p class="text-muted">R$ {{ farm.areas.length || 0 }}</p>
+        </div>
+      </div>
+
+      <div class="list-group mb-4">
+        <h3 class="text-muted ml-2 mb-3 text-center">Áreas</h3>
+
+        <div *ngIf="farm.areas.length === 0" class="alert alert-warning text-center" role="alert">
+          Nenhuma Área foi cadastrada ainda.
+        </div>
+
+        <div class="list-group-item list-group-item-action" *ngFor="let item of farm.areas">
+
+          <div class="row">
+            <div class="col-md-1 align-self-center">
+              <img src="../../assets/img/cereal.svg" alt="icon cereal" class="farm-detail__icon">
+            </div>
+            <div class="col-md-11">
+              <h3 class="card-title mb-1">{{ item.name }}</h3>
+
+              <div class="row">
+                <div class="col">
+                  <small class="text-right">Produção</small>
+                  <h5 class="card-title pricing-card-title">{{ item.production }}</h5>
+                </div>
+
+                <div class="col">
+                  <small class="text-right">Área</small>
+                  <h5 class="card-title pricing-card-title">R$ {{ item.area }}</h5>
+                </div>
+
+                <div class="col">
+                  <small class="text-right">Produção</small>
+                  <h5 class="card-title pricing-card-title">R$ {{ item.production }}</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" [routerLink]="['/cadastro', farm.id]" class="btn btn-lg btn-block btn-outline-primary m-auto">Cadastrar Área</button>
+    </div>
+  </div>
+</section>

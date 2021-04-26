@@ -1,0 +1,23 @@
+<div class="jumbotron row">
+  <div class="col-md-6 align-self-center">
+    <h1 class="">Aegro Farm</h1>
+    <p class="lead">Acompanhe a trajetória completa da sua fazenda em um só lugar!</p>
+    <button type="button" class="btn btn-ligh btn-lg" [routerLink]="['/cadastro', '']">Cadastre sua fazenda</button>
+  </div>
+  <div class="col-md-6">
+    <img src="../../assets/img/illustracao.png" alt="Illustracao Aegro" class="jumbotron__illustra">
+  </div>
+</div>
+
+
+<section class="farm-list">
+  <div *ngIf="farms.length === 0" class="alert alert-warning" role="alert">
+    Nenhuma Fazenda foi cadastrada ainda.
+  </div>
+
+  <div class="row">
+    <div class="col-md-12" *ngFor="let farm of farms">
+      <app-farm-detail [farm]="farm"></app-farm-detail>
+    </div>
+  </div>
+</section>

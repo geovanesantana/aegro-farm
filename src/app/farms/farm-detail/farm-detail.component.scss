@@ -1,0 +1,45 @@
+.farm-detail {
+  &__card {
+    border-radius: 5px;
+    box-shadow: 0 10px 60px 0 rgb(0 0 0 / 5%);
+  }
+
+  &__icon {
+    display: none;
+  }
+
+  .card-header {
+    background-color: #FFF;
+    padding: 15px 40px;
+  }
+
+  .card-body {
+    padding: 40px 50px;
+    background-color: #f7f8fb;
+  }
+
+  .list-group {
+    margin-top: 30px
+  }
+
+  &__avatar {
+    width: 60px;
+    margin-bottom: 10px;
+  }
+
+  .list-group-item {
+    margin-bottom: 20px;
+    padding: 20px 30px;
+    border-radius: 5px;
+  }
+
+  @media screen and (min-width: 768px) {
+    &__icon {
+      display: block;
+    }
+
+    &__avatar {
+      width: inherit;
+    }
+  }
+}

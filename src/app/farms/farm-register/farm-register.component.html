@@ -1,0 +1,68 @@
+<section class="farm-register">
+  <h2 class="mb-4 text-center">{{ title }} {{ farm.name }}</h2>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="text-center mb-4">
+        <img src="../../assets/img/field.svg" width="80px" alt="icon cereal" class="farm-register__icon">
+      </div>
+      <form [formGroup]="farmFields" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="name">Nome da Fazenda</label>
+              <input type="text" formControlName="name" [(ngModel)]="farm.name" name="name" class="form-control" id="name" placeholder="Nome da sua Fazenda">
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="safra">Safra</label>
+              <select class="form-control" formControlName="safra" [(ngModel)]="farm.safra"  name="safra" id="safra">
+                <option value="">Selecione uma safra</option>
+                <option *ngFor="let safra of safras">
+                  {{safra}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Descrição</label>
+          <textarea class="form-control" formControlName="description" [(ngModel)]="farm.description"  name="description"  id="description" rows="3" placeholder="Escreva uma descrição de sua Fazenda"></textarea>
+        </div>
+
+        <table class="table table-bordered" formArrayName="areas">
+          <tr>
+            <th colspan="2">Adicione uma Área:</th>
+            <th colspan="2" class="text-right pr-5">
+              <button type="button" (click)="addArea()" class="btn btn-primary">Adicionar</button>
+            </th>
+          </tr>
+
+          <tr *ngFor="let area of areas().controls; let i=index" [formGroupName]="i">
+            <td>
+                <label for="nameArea">Nome</label>
+                <input type="text" formControlName="name" class="form-control"  name="nameArea" id="nameArea">
+            </td>
+            <td>
+                <label for="area">Área</label>
+                <input type="number" formControlName="area" class="form-control" name="area" id="area">
+            </td>
+            <td>
+              <label for="production">Produção</label>
+              <input type="number" formControlName="production" class="form-control" name="production" id="production">
+            </td>
+            <td class="align-middle text-center">
+              <button (click)="removeArea(i)" class="btn btn-outline-danger">Remover</button>
+            </td>
+          </tr>
+        </table>
+
+        <div class="mb-3 mt-5">
+          <button type="submit" class="btn btn-success btn btn-lg btn-block w-50 m-auto">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
